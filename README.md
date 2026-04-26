@@ -20,38 +20,39 @@ Error analysis on real-world edge cases
 🧠 Approach:- 
 
 1. Text Processing
-Converted text to lowercase
-Removed stopwords
-Used TF-IDF to extract important words
-Included n-grams (1,2) for better context
-
+   .Converted text to lowercase
+   .Removed stopwords
+   .Used TF-IDF to extract important words
+   
 Instead of heavy manual preprocessing, TF-IDF handled most of the work efficiently.
 
-2. Feature Extraction
+3. Feature Extraction
 
-Used TF-IDF to convert text into vectors:
-
-Words with high importance get higher weight
-Rare but important words are emphasized
+  .Used TF-IDF to convert text into vectors:
+  .Words with high importance get higher weight
+  .Rare but important words are emphasized
 
 3. Models Used
    
 Naive Bayes (MultinomialNB) 
 And also comaprision of other model It perform well & good results. (Simple Model)
 
-Results
+4. Results
 
-Model	        Accuracy	   Precision
-Naive Bayes:	~98.4%	     1.0
+Model:-
+Naive Bayes: accuracy = ~98.4% , Precision = 1.0	    
 
 
 👉 Naive Bayes performed best due to its probabilistic nature on text data.
 
-🔍 Cross Validation
+
+5. Cross Validation:-
+
 Applied 10-fold cross-validation
 Average accuracy ~95–96%
 
 👉 Showed that single test accuracy was slightly optimistic.
+
 
 ⚠️ Error Analysis:-
 
@@ -93,29 +94,34 @@ Accuracy alone is not enough → precision and recall matter
 Models depend heavily on training data quality
 No contextual understanding in classical models
 
+
 🚧 Limitations:-
 
-Cannot understand sentence meaning
-Sensitive to keyword dominance
-Depends on dataset quality
-May fail on modern spam or phishing messages
+.Cannot understand sentence meaning
+.Sensitive to keyword dominance
+.Depends on dataset quality
+.May fail on modern spam or phishing messages
+
 
 Future Improvements:-
 
-Use deep learning models (LSTM / Transformers)
-Add contextual understanding
-Include metadata (links, sender info)
-Use larger and more diverse dataset
+.Use deep learning models (LSTM / Transformers)
+.Add contextual understanding
+.Include metadata (links, sender info)
+.Use larger and more diverse dataset
+
 
 🛠️ Tech Stack:-
-Python
-Scikit-learn
-NLTK
-Pandas / NumPy
+   .Python
+   .Scikit-learn
+   .NLTK
+   .Pandas / NumPy
+
 
 🎯 Conclusion
 
 This project demonstrates not only building a spam classifier but also analyzing model performance, understanding limitations, and improving predictions using techniques like threshold tuning and cross-validation.
+
 
 ⭐ Final Note
 This project focuses on practical machine learning skills:-
