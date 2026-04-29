@@ -1,4 +1,5 @@
 __pycache__/
+.vscode/
 *.pyc
 *.pyo
 *.pyd
@@ -8,6 +9,6 @@ venv/
 env/
 
 .ipynb_checkpoints
-
+docker
 .DS_Store
 Thumbs.db
