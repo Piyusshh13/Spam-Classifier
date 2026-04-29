@@ -9,11 +9,11 @@ st.set_page_config(page_title="Spam Classifier", page_icon="📩")
 
 st.title("📩 Email/SMS Spam Classifier")
 
-# Initialize session state
+# Initialize state
 if "message" not in st.session_state:
     st.session_state.message = ""
 
-# Buttons
+# Example buttons
 col1, col2 = st.columns(2)
 
 with col1:
@@ -24,21 +24,22 @@ with col2:
     if st.button("Try Normal Example"):
         st.session_state.message = "Hey, call me when you're free."
 
+# FORM (this is the key fix)
+with st.form("predict_form"):
+    st.text_area("Write a Message", key="message")
+    submitted = st.form_submit_button("Predict")
 
-# Single text area (linked to session state)
-message = st.text_area("Write a Message", key="message")
+# Prediction logic
+if submitted:
+    msg = st.session_state.message
 
-# Predict
-if st.button("Predict"):
-    
-    if message.strip() == "":
+    if msg.strip() == "":
         st.warning("Enter a message first")
     else:
-        prob = model.predict_proba([message])[0][1]
-        
-        threshold = 0.7
-        prediction = "Spam" if prob >= threshold else "Not Spam"
-        
+        prob = model.predict_proba([msg])[0][1]
+
+        prediction = "Spam" if prob >= 0.7 else "Not Spam"
+
         if prediction == "Spam":
             st.error("🚨 Spam Message")
         else:
