@@ -24,8 +24,9 @@ with col2:
     if st.button("Try Normal Example"):
         st.session_state.message = "Hey, call me when you're free."
 
+
 # Single text area (linked to session state)
-message = st.text_area("Write a Message", value=st.session_state.message)
+message = st.text_area("Write a Message", key="message")
 
 # Predict
 if st.button("Predict"):
